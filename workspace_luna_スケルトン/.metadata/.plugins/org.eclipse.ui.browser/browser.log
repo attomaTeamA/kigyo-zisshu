@@ -1,0 +1,4 @@
+
+9月 30, 2023 17:06:45.77 NEW SESSION
+9月 30, 2023 17:06:45.77 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9月 30, 2023 17:15:27.67 [2016:1064:0930/171527.677:ERROR:device_event_log_impl.cc(225)] [17:15:27.665] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 要素が見つかりません。 (0x490)
