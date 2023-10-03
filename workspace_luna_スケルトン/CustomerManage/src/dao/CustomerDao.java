@@ -1,12 +1,14 @@
 package dao;
 
+import static constants.MessageConstants.*;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import util.LogUtil;
 import customer.CustomerBean;
+import util.LogUtil;
 
 /**
  * 顧客管理DAO(オートコミット)
@@ -179,8 +181,31 @@ public class CustomerDao extends BaseDao {
     public String delete(int id) {
         LogUtil.println(this.getClass().getSimpleName() + "#delete");
 
-        // TODO 未実装
+        String errMessage = null;
+        PreparedStatement pstmt = null;
+        String strSql = "DELETE FROM customer WHERE id = ? ";
 
-        return null;
+        try {
+            open();
+            pstmt = conn.prepareStatement(strSql);
+            pstmt.setInt(1, id);
+
+            int intResult = pstmt.executeUpdate();
+            if (intResult != 1) {
+                errMessage = MESSAGE_CAN_NOT_DELETE;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            errMessage = e.getMessage();
+            LogUtil.printStackTrace(e);
+        } finally {
+            try {
+                pstmt.close();
+                close();
+            } catch (SQLException e) {
+                errMessage = e.getMessage();
+                LogUtil.printStackTrace(e);
+            }
+        }
+        return errMessage;
     }
 }
