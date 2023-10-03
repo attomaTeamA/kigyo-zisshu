@@ -1,12 +1,14 @@
 package dao;
 
+import static constants.MessageConstants.*;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import util.LogUtil;
 import customer.CustomerBean;
+import util.LogUtil;
 
 /**
  * 顧客管理DAO(オートコミット)
@@ -167,8 +169,55 @@ public class CustomerDao extends BaseDao {
         LogUtil.println(this.getClass().getSimpleName() + "#update");
 
         // TODO 未実装
+        String errMessage = null;
+        PreparedStatement pstmt = null;
 
-        return null;
+        try {
+            open();
+            String strSql = null;
+//            if (pwd == null) {
+                strSql = "UPDATE CUSTOMER set name=?,zip=?,address1=?,"
+                        + "address2=?,tel=?,fax=?,email=? WHERE id=?";
+                CustomerBean customer = new CustomerBean();
+                pstmt = conn.prepareStatement(strSql);
+                pstmt.setInt(8,customer.getId());
+                pstmt.setString(1, customer.getName());
+                pstmt.setString(2, customer.getZip());
+                pstmt.setString(3, customer.getAddress1());
+                pstmt.setString(4, customer.getAddress2());
+                pstmt.setString(5, customer.getTel());
+                pstmt.setString(6, customer.getFax());
+                pstmt.setString(7, customer.getEmail());
+/*            } else {
+                strSql = "UPDATE LOGIN_USER set login=?,name=?,lvl=?,pwd=PWD_ENCRYPT(?,'" + SECRET + "')"
+                        + " WHERE id=?";
+                pstmt = conn.prepareStatement(strSql);
+                pstmt.setString(1, user.getLogin());
+                pstmt.setString(2, user.getName());
+                pstmt.setInt(3, user.getLvl());
+                pstmt.setString(4, pwd);
+                pstmt.setInt(5, user.getId());
+                */
+  //          }
+
+            int intResult = pstmt.executeUpdate();
+            if (intResult != 1) {
+                errMessage = MESSAGE_NO_EXIST_CORRESPOND_DATA;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            errMessage = e.getMessage();
+            LogUtil.printStackTrace(e);
+        } finally {
+            try {
+                pstmt.close();
+                close();
+            } catch (SQLException e) {
+                errMessage = e.getMessage();
+                LogUtil.printStackTrace(e);
+            }
+        }
+        return errMessage;
+
     }
 
     /**

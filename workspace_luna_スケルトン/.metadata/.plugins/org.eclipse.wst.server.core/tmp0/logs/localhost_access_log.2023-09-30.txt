@@ -1,5 +1,9 @@
-127.0.0.1 - - [30/Sep/2023:16:42:56 +0900] "GET / HTTP/1.1" 404 1103
-0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:06:31 +0900] "GET /CustomerManage/index.html HTTP/1.1" 200 310
-0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:06:35 +0900] "GET /CustomerManage/style.css HTTP/1.1" 200 1837
-0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:06:37 +0900] "GET /favicon.ico HTTP/1.1" 404 1114
-0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:06:40 +0900] "GET /CustomerManage/LoginServlet HTTP/1.1" 200 827
+127.0.0.1 - - [30/Sep/2023:16:54:12 +0900] "GET / HTTP/1.1" 404 1103
+0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:05:17 +0900] "GET /CustomerManage/index.html HTTP/1.1" 200 310
+0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:05:17 +0900] "GET /CustomerManage/style.css HTTP/1.1" 200 1837
+0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:05:17 +0900] "GET /favicon.ico HTTP/1.1" 404 1114
+0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:05:18 +0900] "GET /CustomerManage/LoginServlet HTTP/1.1" 200 827
+0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:06:04 +0900] "GET /CustomerManage/ HTTP/1.1" 200 310
+0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:06:05 +0900] "GET /CustomerManage/LoginServlet HTTP/1.1" 200 827
+0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:07:27 +0900] "POST /CustomerManage/LoginServlet HTTP/1.1" 200 397
+0:0:0:0:0:0:0:1 - - [30/Sep/2023:17:10:00 +0900] "GET /CustomerManage/CustmerServlet/ HTTP/1.1" 404 1141

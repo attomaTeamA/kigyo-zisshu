@@ -1,9 +1,12 @@
 package customer;
 
+import static constants.MessageConstants.*;
+
 import javax.servlet.http.HttpServletRequest;
 
-import util.LogUtil;
 import dao.CustomerDao;
+import util.LogUtil;
+import util.StringUtil;
 
 /**
  * 顧客情報のロジック
@@ -33,7 +36,7 @@ public class CustomerLogic {
         LogUtil.println(this.getClass().getSimpleName() + "#add");
 
         // TODO 未実装
-
+ 
         return null;
     }
 
@@ -46,8 +49,17 @@ public class CustomerLogic {
         LogUtil.println(this.getClass().getSimpleName() + "#update");
 
         // TODO 未実装
+        if (customer == null) {
+            return MESSAGE_NO_EXIST_CORRESPOND_DATA;
+        }
 
-        return null;
+        String errMessage = null;
+        CustomerDao customerDao = new CustomerDao();
+        errMessage = customerDao.update(customer);
+        if (errMessage != null) {
+            errMessage = MESSAGE_CAN_NOT_UPDATE;
+        }
+        return errMessage;
     }
 
     /**
@@ -71,6 +83,19 @@ public class CustomerLogic {
         LogUtil.println(this.getClass().getSimpleName() + "#setCustomerBeanFromRequestToSession");
 
         // TODO 未実装
+        CustomerBean customer = (CustomerBean)request.getSession().getAttribute("customer");
+        if (customer == null) {
+            customer = new CustomerBean();
+        }
 
+        customer.setName(StringUtil.exchangeESCEncoding(request.getParameter("name")));
+        customer.setZip(StringUtil.exchangeESCEncoding(request.getParameter("zip")));
+        customer.setAddress1(StringUtil.exchangeESCEncoding(request.getParameter("address1")));
+        customer.setAddress2(StringUtil.exchangeESCEncoding(request.getParameter("address2")));
+        customer.setTel(StringUtil.exchangeESCEncoding(request.getParameter("tel")));
+        customer.setFax(StringUtil.exchangeESCEncoding(request.getParameter("fax")));
+        customer.setEmail(StringUtil.exchangeESCEncoding(request.getParameter("email")));
+        request.getSession().setAttribute("customer", customer);
+       
     }
 }
