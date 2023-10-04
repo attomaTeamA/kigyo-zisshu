@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import dao.CustomerDao;
 import util.LogUtil;
+import util.StringUtil;
 
 /**
  * 顧客情報のロジック
@@ -34,9 +35,12 @@ public class CustomerLogic {
     public String add(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#add");
 
-        // TODO 未実装
 
-        return null;
+        // TODO 未実装
+        String errMessage = null;
+        CustomerDao customerDao = new CustomerDao();
+        errMessage = customerDao.add(customer);
+        return errMessage;
     }
 
     /**
@@ -80,8 +84,19 @@ public class CustomerLogic {
      */
     public void setCustomerBeanFromRequestToSession(HttpServletRequest request) {
         LogUtil.println(this.getClass().getSimpleName() + "#setCustomerBeanFromRequestToSession");
+        // TODO セッションにセットする（customerを） add_confirm で呼ぶ
+        CustomerBean customer = (CustomerBean)request.getSession().getAttribute("customer");
+        if (customer == null) {
+            customer = new CustomerBean();
+        }
 
-        // TODO 未実装
-
+        customer.setName(StringUtil.exchangeESCEncoding(request.getParameter("name")));
+        customer.setZip(StringUtil.exchangeESCEncoding(request.getParameter("zip")));
+        customer.setAddress1(StringUtil.exchangeESCEncoding(request.getParameter("address1")));
+        customer.setAddress2(StringUtil.exchangeESCEncoding(request.getParameter("address2")));
+        customer.setTel(StringUtil.exchangeESCEncoding(request.getParameter("tel")));
+        customer.setFax(StringUtil.exchangeESCEncoding(request.getParameter("fax")));
+        customer.setEmail(StringUtil.exchangeESCEncoding(request.getParameter("email")));
+        request.getSession().setAttribute("customer", customer);
     }
 }

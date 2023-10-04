@@ -203,8 +203,8 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procNew(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO 未実装
-
-        getServletContext().getRequestDispatcher("/WEB-INF/xxxx/xxxx.jsp").forward(request, response);
+        // TODO
+        getServletContext().getRequestDispatcher("/WEB-INF/customer/new.jsp").forward(request, response);
     }
 
     /**
@@ -219,8 +219,17 @@ public class CustomerServlet extends BaseServlet {
     private void procAdd(HttpServletRequest request, HttpServletResponse response, HttpSession session)
             throws ServletException, IOException {
         // TODO 未実装
-
-        getServletContext().getRequestDispatcher("/WEB-INF/xxxx/xxxx.jsp").forward(request, response);
+        String errMessage = null;
+        CustomerBean customer =(CustomerBean)session.getAttribute("customer");
+        CustomerLogic customeradd = new CustomerLogic();
+        errMessage = customeradd.add(customer);
+        session.removeAttribute("customer");
+        if(errMessage == null) {
+            request.getRequestDispatcher("/WEB-INF/customer/add_success.jsp").forward(request, response);
+        }else {
+            request.getRequestDispatcher("/WEB-INF/customer/add_fail.jsp").forward(request, response);
+        }
+        return;
     }
 
     /**
@@ -313,8 +322,10 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procNewConfirm(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException, UnsupportedEncodingException {
-        // TODO 未実装
-
-        getServletContext().getRequestDispatcher("/WEB-INF/xxxx/xxxx.jsp").forward(request, response);
+        // TODO セッションにセット
+       CustomerLogic customerLogic =  new CustomerLogic();
+        customerLogic.setCustomerBeanFromRequestToSession(request);
+        System.out.println("procNewConfirm");
+        getServletContext().getRequestDispatcher("/WEB-INF/customer/new_confirm.jsp").forward(request, response);
     }
 }

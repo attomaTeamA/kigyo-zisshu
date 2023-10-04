@@ -36,7 +36,7 @@
                 <td class="center"><%=customer.getId()%></td>
                 <td><%=customer.getName()%></td>
                 <td><%=customer.getZip()%></td>
-                <td><%=customer.getAddress1()%> <%=customer.getAddress2()%></td>
+                <td><%=customer.getAddress1()%> </td>
                 <%
                     if (user.getLvl() >= 1) {
                 %>
@@ -63,6 +63,9 @@
             <p>
 
                 <!-- TODO ｢新規登録｣ボタン -->
+                <% if (user.getLvl() >= 1) {%>
+                 <button name="state" value="new">新規登録</button>
+                <% } %>
 
                 <button name="state" value="search">検索条件画面</button>
             </p>
