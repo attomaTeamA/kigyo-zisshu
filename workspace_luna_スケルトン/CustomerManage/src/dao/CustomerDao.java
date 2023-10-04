@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import util.LogUtil;
 import customer.CustomerBean;
+import util.LogUtil;
 
 /**
  * 顧客管理DAO(オートコミット)
@@ -154,8 +154,35 @@ public class CustomerDao extends BaseDao {
         LogUtil.println(this.getClass().getSimpleName() + "#add");
 
         // TODO 未実装
+        String errMessage = null;
+        PreparedStatement pstmt = null;
+        String strSql = "INSERT INTO  CUSTOMER(id,name,zip,address1,address2,tel,fax)"
+                + " VALUES(sequence_login_user_id.NEXTVAL,?,?,?,?,?,?)";
 
-        return null;
+        try {
+            open();
+            pstmt = conn.prepareStatement(strSql);
+            pstmt.setString(1, customer.getName());
+            pstmt.setString(2, customer.getZip());
+            pstmt.setString(3, customer.getAddress1());
+            pstmt.setString(4, customer.getAddress2());
+            pstmt.setString(5, customer.getTel());
+            pstmt.setString(6, customer.getFax());
+            pstmt.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            errMessage = e.getMessage();
+            LogUtil.printStackTrace(e);
+        } finally {
+            try {
+                pstmt.close();
+                close();
+            } catch (SQLException e) {
+                errMessage = e.getMessage();
+                LogUtil.printStackTrace(e);
+            }
+        }
+
+        return errMessage;
     }
 
     /**

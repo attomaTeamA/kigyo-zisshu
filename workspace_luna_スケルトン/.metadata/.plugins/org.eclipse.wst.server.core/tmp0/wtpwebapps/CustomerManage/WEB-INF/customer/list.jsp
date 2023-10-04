@@ -16,7 +16,7 @@
         <h2>検索結果</h2>
         <table border="1">
             <tr>
-                <th>ＩＤ</th>
+               <th>ＩＤ</th>
                 <th>氏名</th>
                 <th>郵便番号</th>
                 <th>住所</th>
@@ -36,7 +36,7 @@
                 <td class="center"><%=customer.getId()%></td>
                 <td><%=customer.getName()%></td>
                 <td><%=customer.getZip()%></td>
-                <td><%=customer.getAddress1()%> <%=customer.getAddress2()%></td>
+                <td><%=customer.getAddress1()%> </td>
                 <%
                     if (user.getLvl() >= 1) {
                 %>
@@ -58,9 +58,9 @@
         </table>
         <form action="CustomerServlet" method="post">
             <p>
-
-                <!-- TODO ｢新規登録｣ボタン -->
-
+             <% if (user.getLvl() >= 1) {%>
+                <button name="state" value="new">新規登録</button>
+               <% } %>
                 <button name="state" value="search">検索条件画面</button>
             </p>
         </form>

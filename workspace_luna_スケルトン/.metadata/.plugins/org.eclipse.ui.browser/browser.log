@@ -2,3 +2,15 @@
 9月 30, 2023 17:06:45.77 NEW SESSION
 9月 30, 2023 17:06:45.77 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 9月 30, 2023 17:15:27.67 [2016:1064:0930/171527.677:ERROR:device_event_log_impl.cc(225)] [17:15:27.665] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 要素が見つかりません。 (0x490)
+
+10月 03, 2023 16:54:52.07 NEW SESSION
+10月 03, 2023 16:54:52.07 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+10月 03, 2023 17:29:51.88 [6084:8516:1003/172951.882:ERROR:device_event_log_impl.cc(225)] [17:29:51.873] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 要素が見つかりません。 (0x490)
+10月 03, 2023 18:56:28.02 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+10月 03, 2023 19:44:12.68 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+10月 03, 2023 19:45:30.01 [15920:6596:1003/194530.018:ERROR:device_event_log_impl.cc(225)] [19:45:30.021] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 要素が見つかりません。 (0x490)
+10月 03, 2023 19:47:42.48 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+10月 03, 2023 19:53:41.67 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+10月 04, 2023 18:45:32.24 NEW SESSION
+10月 04, 2023 18:45:32.24 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.

@@ -14,7 +14,8 @@
 <fullyQualifiedTypeName name="util.LogUtil"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
-<fullyQualifiedTypeName name="util.StringUtil"/>
 <fullyQualifiedTypeName name="constants.MessageConstants"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="customer.CustomerCsvLogic"/>
+<fullyQualifiedTypeName name="util.StringUtil"/>
 </qualifiedTypeNameHistroy>
