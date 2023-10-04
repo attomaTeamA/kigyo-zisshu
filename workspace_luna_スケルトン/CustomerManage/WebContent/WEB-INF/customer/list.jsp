@@ -44,10 +44,12 @@
                 <form action="CustomerServlet" method="post">
                     <button name="state" value="detail,<%=customer.getId()%>">詳細</button>
                 </form>
+                <!-- ｢削除｣ボタン -->
+                <td class="center">
+                <form action="CustomerServlet" method="post">
+                    <button name="state" value="delete_confirm,<%=customer.getId()%>">削除</button>
+                </form>
                 </td>
-
-                <!-- TODO ｢削除｣ボタン -->
-
                 <%
                     }
                 %>
@@ -55,6 +57,7 @@
             <%
                 }
             %>
+
         </table>
         <form action="CustomerServlet" method="post">
             <p>

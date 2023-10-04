@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import user.UserBean;
-import user.UserLogic;
-import util.LogUtil;
-import util.StringUtil;
 import customer.CustomerBean;
 import customer.CustomerListBean;
 import customer.CustomerListLogic;
 import customer.CustomerLogic;
+import user.UserBean;
+import user.UserLogic;
+import util.LogUtil;
+import util.StringUtil;
 
 /**
  * 顧客管理のサーブレット
@@ -44,6 +44,7 @@ public class CustomerServlet extends BaseServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
         LogUtil.println("**** " + this.getClass().getSimpleName() + "#doPost *****");
 
         request.setCharacterEncoding("UTF-8");
@@ -233,9 +234,15 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procDeleteConfirm(HttpServletRequest request, HttpServletResponse response, String id)
             throws ServletException, IOException {
-        // TODO 未実装
 
-        getServletContext().getRequestDispatcher("/WEB-INF/xxxx/xxxx.jsp").forward(request, response);
+        int intId = Integer.parseInt(id);
+        // sessionに保存
+        CustomerLogic customerLogic = new CustomerLogic();
+        CustomerBean customer = null;
+        customer = customerLogic.load(intId);
+        HttpSession session = request.getSession();
+        session.setAttribute("customer", customer);
+        getServletContext().getRequestDispatcher("/WEB-INF/customer/delete_confirm.jsp").forward(request, response);
     }
 
     /**
@@ -249,9 +256,21 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procDelete(HttpServletRequest request, HttpServletResponse response, HttpSession session)
             throws ServletException, IOException {
-        // TODO 未実装
 
-        getServletContext().getRequestDispatcher("/WEB-INF/xxxx/xxxx.jsp").forward(request, response);
+        String errMessage = null;
+        CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+        CustomerLogic customerLogic = new CustomerLogic();
+        errMessage = customerLogic.delete(customer);
+
+        session.removeAttribute("customer");
+
+        if (errMessage == null) {
+            getServletContext().getRequestDispatcher("/WEB-INF/customer/delete_success.jsp").forward(request, response);
+        } else {
+            session.setAttribute("errMessage", errMessage);
+
+            getServletContext().getRequestDispatcher("/WEB-INF/customer/delete_fail.jsp").forward(request, response);
+        }
     }
 
     /**

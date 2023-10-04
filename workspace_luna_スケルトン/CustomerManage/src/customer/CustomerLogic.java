@@ -1,9 +1,11 @@
 package customer;
 
+import static constants.MessageConstants.*;
+
 import javax.servlet.http.HttpServletRequest;
 
-import util.LogUtil;
 import dao.CustomerDao;
+import util.LogUtil;
 
 /**
  * 顧客情報のロジック
@@ -58,9 +60,18 @@ public class CustomerLogic {
     public String delete(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#delete");
 
-        // TODO 未実装
+        if (customer == null) {
+            return MESSAGE_NO_EXIST_CORRESPOND_DATA;
+        }
 
-        return null;
+        String errMessage = null;
+        CustomerDao customerDao = new CustomerDao();
+        errMessage = customerDao.delete(customer.getId());
+        if (errMessage != null) {
+            errMessage = MESSAGE_CAN_NOT_DELETE;
+        }
+
+        return errMessage;
     }
 
     /**
