@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\S01P\Documents\Git管理用\workspace_luna_スケルトン\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\S01P\Documents\Git管理用\workspace_luna_スケルトン\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\CustomerManage" path="/CustomerManage" reloadable="false" source="org.eclipse.jst.jee.server:CustomerManage"/></Host>
+      <Context docBase="C:\Users\S01P\Documents\git管理用\kigyo-zisshu\workspace_luna_スケルトン\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\S01P\Documents\git管理用\kigyo-zisshu\workspace_luna_スケルトン\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\CustomerManage" path="/CustomerManage" reloadable="false" source="org.eclipse.jst.jee.server:CustomerManage"/></Host>
     </Engine>
   </Service>
 </Server>

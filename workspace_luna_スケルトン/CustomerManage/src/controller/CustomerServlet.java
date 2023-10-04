@@ -189,9 +189,20 @@ public class CustomerServlet extends BaseServlet {
     private void procUpdate(HttpServletRequest request, HttpServletResponse response, HttpSession session)
             throws ServletException, IOException {
         // TODO 未実装
+        String errMessage = null;
+        CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+        CustomerLogic CustomerLogic = new CustomerLogic();
+        errMessage = CustomerLogic.update(customer);
 
-        getServletContext().getRequestDispatcher("/WEB-INF/xxxx/xxxx.jsp").forward(request, response);
-    }
+        session.removeAttribute("customer");
+
+        if (errMessage == null) {
+            getServletContext().getRequestDispatcher("/WEB-INF/customer/update_success.jsp").forward(request, response);
+        } else {
+            session.setAttribute("errMessage", errMessage);
+            getServletContext().getRequestDispatcher("/WEB-INF/customer/update_fail.jsp").forward(request, response);
+        }
+       }
 
     /**
      * 新規登録画面に遷移する
@@ -293,8 +304,8 @@ public class CustomerServlet extends BaseServlet {
     private void procEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
         // TODO 未実装
-
-        getServletContext().getRequestDispatcher("/WEB-INF/xxxx/xxxx.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/customer/edit.jsp").forward(request, response);
+   
     }
 
     /**
@@ -308,8 +319,11 @@ public class CustomerServlet extends BaseServlet {
     private void procEditConfirm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO 未実装
-
-        getServletContext().getRequestDispatcher("/WEB-INF/xxxx/xxxx.jsp").forward(request, response);
+        String errMessage = null;
+        CustomerLogic CustomerLogic = new CustomerLogic();
+        CustomerLogic.setCustomerBeanFromRequestToSession(request);
+        getServletContext().getRequestDispatcher("/WEB-INF/customer/edit_confirm.jsp").forward(request, response);
+      
     }
 
     /**

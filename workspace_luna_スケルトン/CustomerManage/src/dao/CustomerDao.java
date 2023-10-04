@@ -154,13 +154,11 @@ public class CustomerDao extends BaseDao {
      */
     public String add(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#add");
-        LogUtil.println(this.getClass().getSimpleName() + "#add");
 
-        // TODO 未実装
         String errMessage = null;
         PreparedStatement pstmt = null;
-        String strSql = "INSERT INTO  CUSTOMER(id,name,zip,address1,address2,tel,fax)"
-                + " VALUES(sequence_login_user_id.NEXTVAL,?,?,?,?,?,?)";
+        String strSql = "INSERT INTO  CUSTOMER(id,name,zip,address1,address2,tel,fax,email)"
+                + " VALUES(sequence_customer_id.NEXTVAL,?,?,?,?,?,?,?)";
 
         try {
             open();
@@ -171,6 +169,7 @@ public class CustomerDao extends BaseDao {
             pstmt.setString(4, customer.getAddress2());
             pstmt.setString(5, customer.getTel());
             pstmt.setString(6, customer.getFax());
+            pstmt.setString(7, customer.getEmail());
             pstmt.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             errMessage = e.getMessage();
@@ -193,13 +192,68 @@ public class CustomerDao extends BaseDao {
      * @param cutomer 顧客情報Bean
      * @return エラーメッセージ(処理成功時、null)
      */
-    public String update(CustomerBean cutomer) {
+    public String update(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#update");
 
         // TODO 未実装
+ 
+        LogUtil.println(this.getClass().getSimpleName() + "#update");
 
-        return null;
-    }
+        // TODO 未実装
+        String errMessage = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            open();
+            String strSql = null;
+//            if (pwd == null) {
+                strSql = "UPDATE CUSTOMER set name=?,zip=?,address1=?,"
+                        + "address2=?,tel=?,fax=?,email=? WHERE id=?";
+            
+//                strSql = "UPDATE CUSTOMER set name=? WHERE id=?";
+                pstmt = conn.prepareStatement(strSql);
+
+     
+                pstmt.setString(1, customer.getName());
+            
+                pstmt.setString(2, customer.getZip());
+                pstmt.setString(3, customer.getAddress1());
+                pstmt.setString(4, customer.getAddress2());
+                pstmt.setString(5, customer.getTel());
+                pstmt.setString(6, customer.getFax());
+                pstmt.setString(7, customer.getEmail());
+                pstmt.setInt(8,customer.getId());
+/*            } else {
+                strSql = "UPDATE LOGIN_USER set login=?,name=?,lvl=?,pwd=PWD_ENCRYPT(?,'" + SECRET + "')"
+                        + " WHERE id=?";
+                pstmt = conn.prepareStatement(strSql);
+                pstmt.setString(1, user.getLogin());
+                pstmt.setString(2, user.getName());
+                pstmt.setInt(3, user.getLvl());
+                pstmt.setString(4, pwd);
+                pstmt.setInt(5, user.getId());
+                */
+  //          }
+            LogUtil.println(this.getClass().getSimpleName() + "#update　strSql="+ strSql);
+            int intResult = pstmt.executeUpdate();
+            System.out.println("成功");
+            if (intResult != 1) {
+                errMessage = MESSAGE_NO_EXIST_CORRESPOND_DATA;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            errMessage = e.getMessage();
+            LogUtil.printStackTrace(e);
+        } finally {
+            try {
+                pstmt.close();
+                close();
+            } catch (SQLException e) {
+                errMessage = e.getMessage();
+                LogUtil.printStackTrace(e);
+            }
+        }
+        return errMessage;
+        }
 
     /**
      * IDを指定して顧客情報テーブルから顧客情報を削除する

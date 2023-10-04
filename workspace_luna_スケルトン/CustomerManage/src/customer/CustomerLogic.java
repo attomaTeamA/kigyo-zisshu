@@ -52,9 +52,20 @@ public class CustomerLogic {
         LogUtil.println(this.getClass().getSimpleName() + "#update");
 
         // TODO 未実装
+        if (customer == null) {
+            LogUtil.println(this.getClass().getSimpleName() + "#update null");
+            return MESSAGE_NO_EXIST_CORRESPOND_DATA;
+        }
 
-        return null;
-    }
+        String errMessage = null;
+        CustomerDao customerDao = new CustomerDao();
+//        errMessage = 
+        customerDao.update(customer);
+        if (errMessage != null) {
+            errMessage = MESSAGE_CAN_NOT_UPDATE;
+        }
+        return errMessage;
+     }
 
     /**
      * DAO経由でDBの顧客情報を削除する
