@@ -188,30 +188,21 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procUpdate(HttpServletRequest request, HttpServletResponse response, HttpSession session)
             throws ServletException, IOException {
-        // TODO 未実装
-        /*
-        if (user.getLvl() != 2) {
-            session.setAttribute("errMessage", MESSAGE_NO_OPERATION_PRIVILEGE);
-            getServletContext().getRequestDispatcher("/WEB-INF/user/error.jsp").forward(request, response);
-            return;
-        }
-        */
+
         String errMessage = null;
         CustomerBean customer = (CustomerBean) session.getAttribute("customer");
-        CustomerLogic customerLogic = new CustomerLogic();
-        customerLogic.setCustomerBeanFromRequestToSession(request);
-        errMessage = customerLogic.update(customer);
+        CustomerLogic CustomerLogic = new CustomerLogic();
+        errMessage = CustomerLogic.update(customer);
 
- //       session.removeAttribute("customerEdit");
+        session.removeAttribute("customer");
 
         if (errMessage == null) {
             getServletContext().getRequestDispatcher("/WEB-INF/customer/update_success.jsp").forward(request, response);
         } else {
             session.setAttribute("errMessage", errMessage);
-
-        getServletContext().getRequestDispatcher("/WEB-INF/customer/update_fail.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/customer/update_fail.jsp").forward(request, response);
         }
-        }
+    }
 
     /**
      * 新規登録画面に遷移する
@@ -285,32 +276,8 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procEdit(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws ServletException,
             IOException {
-        // TODO 未実装
-        /*
-        if (user.getLvl() != 2) {
-            session.setAttribute("errMessage", MESSAGE_NO_OPERATION_PRIVILEGE);
-            getServletContext().getRequestDispatcher("/WEB-INF/user/error.jsp").forward(request, response);
-            return;
-        }
-        {
-        */
-        String errMessage = null;
-        CustomerBean customerEdit = (CustomerBean) session.getAttribute("customerEdit");
-        CustomerLogic CustomerLogic = new CustomerLogic();
-        errMessage = CustomerLogic.update(customerEdit);
-
-  //      session.removeAttribute("customerEdit");
-
-        if (errMessage == null) {
-            getServletContext().getRequestDispatcher("/WEB-INF/customer/edit_confirm.jsp").forward(request, response);
-        } else {
-            session.setAttribute("errMessage", errMessage);
-
-        getServletContext().getRequestDispatcher("/WEB-INF/customer/edit.jsp").forward(request, response);
-        }
+      getServletContext().getRequestDispatcher("/WEB-INF/customer/edit.jsp").forward(request, response);
     }
-    
-    
 
     /**
      * リクエスト内の顧客情報をセッションに設定し、編集確認画面に遷移する
@@ -322,32 +289,12 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procEditConfirm(HttpServletRequest request, HttpServletResponse response,HttpSession session)
             throws ServletException, IOException {
-        // TODO 未実装
-        /*
-        if (user.getLvl() != 2) {
-            session.setAttribute("errMessage", MESSAGE_NO_OPERATION_PRIVILEGE);
-            getServletContext().getRequestDispatcher("/WEB-INF/user/error.jsp").forward(request, response);
-            return;
-        }
-        */
- {
         String errMessage = null;
-        CustomerBean customerEdit = (CustomerBean) session.getAttribute("customerEdit");
         CustomerLogic CustomerLogic = new CustomerLogic();
-        errMessage = CustomerLogic.update(customerEdit);
-
- //       session.removeAttribute("customerEdit");
-
-        if (errMessage == null) {
-            getServletContext().getRequestDispatcher("/WEB-INF/customer/edit_confirm.jsp").forward(request, response);
-        } else {
-            session.setAttribute("errMessage", errMessage);
-
-        getServletContext().getRequestDispatcher("/WEB-INF/customer/edit.jsp").forward(request, response);
-        }
-        
+        CustomerLogic.setCustomerBeanFromRequestToSession(request);
+        getServletContext().getRequestDispatcher("/WEB-INF/customer/edit_confirm.jsp").forward(request, response);
     }
-}
+//
 
     /**
      * リクエスト内の顧客情報をセッションに設定し、入力確認画面に遷移する

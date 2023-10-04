@@ -50,12 +50,17 @@ public class CustomerLogic {
 
         // TODO 未実装
         if (customer == null) {
+            LogUtil.println(this.getClass().getSimpleName() + "#update null");
             return MESSAGE_NO_EXIST_CORRESPOND_DATA;
         }
 
+        System.out.println("1=========" + customer.getName() + "=========");
         String errMessage = null;
         CustomerDao customerDao = new CustomerDao();
-        errMessage = customerDao.update(customer);
+//        errMessage = 
+        System.out.println("2=========" + customer.getName() + "=========");
+        customerDao.update(customer);
+        System.out.println("3=========" + customer.getName() + "=========");
         if (errMessage != null) {
             errMessage = MESSAGE_CAN_NOT_UPDATE;
         }

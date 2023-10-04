@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- jsp:useBean class="user.UserBean" id="user" scope="session" /-->
-<jsp:useBean class="customer.CustomerBean" id="customerEdit" scope="session" />
+<jsp:useBean class="user.UserBean" id="user" scope="session" />
+<jsp:useBean class="customer.CustomerBean" id="customer" scope="session" />
 <!doctype html>
 <html>
 <head>
@@ -15,47 +15,47 @@
     <div class="main">
         <!-- TODO ｢既存データ編集･削除｣画面 -->
        <h2>既存データの編集</h2>
-        <form name="?form1" action="CustomerServlet" method="post"
+        <form name="form1" action="CustomerServlet" method="post"
             onsubmit="return funcConfirm()">
             <table>
                 <tr>
                     <td class="title">氏名</td>
                     <td><input type="text" name="name" maxlength="15"
-                        value="<%=customerEdit.getName()%>"></td>
+                        value="<%=customer.getName()%>"></td>
                 </tr>
                 <tr>
                     <td class="title">郵便番号</td>
                     <td><input type="text" name="zip" maxlength="20"
-                        value="<%=customerEdit.getZip()%>"></td>
+                        value="<%=customer.getZip()%>"></td>
                 </tr>
        　　                          <tr>
                     <td class="title">住所１</td>
                     <td><input type="text" name="address1" maxlength="20"
-                        value="<%=customerEdit.getAddress1()%>"></td>
+                        value="<%=customer.getAddress1()%>"></td>
                 </tr>
                 <tr>
                     <td class="title">住所２</td>
                     <td><input type="text" name="address2" maxlength="20"
-                        value="<%=customerEdit.getAddress2()%>"></td>
+                        value="<%=customer.getAddress2()%>"></td>
                 </tr>
                 <tr>
                     <td class="title">TEL</td>
                     <td><input type="text" name="tel" maxlength="20"
-                        value="<%=customerEdit.getTel()%>"></td>
+                        value="<%=customer.getTel()%>"></td>
                 </tr>
                 <tr>
                     <td class="title">FAX</td>
                     <td><input type="text" name="fax" maxlength="20"
-                        value="<%=customerEdit.getFax()%>"></td>
+                        value="<%=customer.getFax()%>"></td>
                 </tr>   
                 <tr>
                     <td class="title">E-mail</td>
                     <td><input type="text" name="email" maxlength="20"
-                        value="<%=customerEdit.getEmail()%>"></td>
+                        value="<%=customer.getEmail()%>"></td>
                 </tr>                                                                      
             </table> 
             <p>
-                <button name="state" value="update">送信</button>
+                <button name="state" value="edit_confirm">送信</button>
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>

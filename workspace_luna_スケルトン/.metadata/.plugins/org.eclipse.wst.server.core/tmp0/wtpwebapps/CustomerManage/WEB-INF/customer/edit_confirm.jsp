@@ -20,35 +20,35 @@
             <table>
                 <tr>
                     <td>氏名</td>
-                    <td><%=customer.getName()%>"></td>
+                    <td><%=customer.getName()%></td>
                 </tr>
                 <tr>
                     <td>郵便番号</td>
-                    <td><%=customer.getZip()%>"></td>
+                    <td><%=customer.getZip()%></td>
                 </tr>
        　　                          <tr>
                     <td>住所１</td>
-                    <td><%=customer.getAddress1()%>"></td>
+                    <td><%=customer.getAddress1()%></td>
                 </tr>
                 <tr>
                     <td>住所２</td>
-                    <td><%=customer.getAddress2()%>"></td>
+                    <td><%=customer.getAddress2()%></td>
                 </tr>
                 <tr>
                     <td>TEL</td>
-                    <td><%=customer.getTel()%>"></td>
+                    <td><%=customer.getTel()%></td>
                 </tr>
                 <tr>
                     <td>FAX</td>
-                    <td><%=customer.getFax()%>"></td>
+                    <td><%=customer.getFax()%></td>
                 </tr>   
                 <tr>
                     <td>E-mail</td>
-                    <td><%=customer.getEmail()%>"></td>
+                    <td><%=customer.getEmail()%></td>
                 </tr>                                                                      
             </table> 
             <p>
-                <button name="state" value="edit_confirm">送信</button>
+                <button name="state" value="update">送信</button>
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>

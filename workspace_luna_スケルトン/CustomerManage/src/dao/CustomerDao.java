@@ -165,7 +165,9 @@ public class CustomerDao extends BaseDao {
      * @param cutomer 顧客情報Bean
      * @return エラーメッセージ(処理成功時、null)
      */
-    public String update(CustomerBean cutomer) {
+    public String update(CustomerBean customer) {
+//        HttpCustomerBean customer = new CustomerBean();
+        System.out.println("4=========" + customer.getName() + "=========");
         LogUtil.println(this.getClass().getSimpleName() + "#update");
 
         // TODO 未実装
@@ -178,16 +180,20 @@ public class CustomerDao extends BaseDao {
 //            if (pwd == null) {
                 strSql = "UPDATE CUSTOMER set name=?,zip=?,address1=?,"
                         + "address2=?,tel=?,fax=?,email=? WHERE id=?";
-                CustomerBean customer = new CustomerBean();
+            
+//                strSql = "UPDATE CUSTOMER set name=? WHERE id=?";
                 pstmt = conn.prepareStatement(strSql);
-                pstmt.setInt(8,customer.getId());
+
+                System.out.println("name=======>" + customer.getName());
                 pstmt.setString(1, customer.getName());
+            
                 pstmt.setString(2, customer.getZip());
                 pstmt.setString(3, customer.getAddress1());
                 pstmt.setString(4, customer.getAddress2());
                 pstmt.setString(5, customer.getTel());
                 pstmt.setString(6, customer.getFax());
                 pstmt.setString(7, customer.getEmail());
+                pstmt.setInt(8,customer.getId());
 /*            } else {
                 strSql = "UPDATE LOGIN_USER set login=?,name=?,lvl=?,pwd=PWD_ENCRYPT(?,'" + SECRET + "')"
                         + " WHERE id=?";
@@ -199,8 +205,9 @@ public class CustomerDao extends BaseDao {
                 pstmt.setInt(5, user.getId());
                 */
   //          }
-
+            LogUtil.println(this.getClass().getSimpleName() + "#update　strSql="+ strSql);
             int intResult = pstmt.executeUpdate();
+            System.out.println("成功");
             if (intResult != 1) {
                 errMessage = MESSAGE_NO_EXIST_CORRESPOND_DATA;
             }
