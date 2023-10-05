@@ -79,6 +79,9 @@ public class CustomerLogic {
         String errMessage = null;
         CustomerDao customerDao = new CustomerDao();
         errMessage = customerDao.delete(customer.getId());
+        if (errMessage != null) {
+            errMessage = MESSAGE_CAN_NOT_DELETE;
+        }
 
         return errMessage;
     }

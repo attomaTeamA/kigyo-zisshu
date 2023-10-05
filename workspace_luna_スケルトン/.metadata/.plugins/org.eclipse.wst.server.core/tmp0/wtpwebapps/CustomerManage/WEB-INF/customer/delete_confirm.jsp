@@ -27,7 +27,11 @@
             </tr>
             <tr>
                 <td class="title">住所2</td>
-                <td><%=customer.getAddress2()%></td>
+                <td>
+                    <% if(customer.getAddress2() != null) { %>
+                        <%=customer.getAddress2()%>
+                    <% } %>
+                </td>
             </tr>
             <tr>
                 <td class="title">TEL</td>
@@ -35,7 +39,11 @@
             </tr>
             <tr>
                 <td class="title">FAX</td>
-                <td><%=customer.getFax()%></td>
+                <td>
+                    <% if(customer.getFax() != null) { %>
+                        <%=customer.getFax()%>
+                    <% } %>
+                </td>
             </tr>
             <tr>
                 <td class="title">E-mail</td>

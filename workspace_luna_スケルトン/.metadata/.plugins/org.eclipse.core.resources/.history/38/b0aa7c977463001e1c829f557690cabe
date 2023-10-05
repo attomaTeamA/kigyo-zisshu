@@ -40,9 +40,9 @@
             <tr>
                 <td class="title">FAX</td>
                 <td>
-                    <% if(customer.getFax() != null) { %>
+                    <% if(customer.getFax() != null) {
                         <%=customer.getFax()%>
-                    <% } %>
+                    <%  } %>
                 </td>
             </tr>
             <tr>

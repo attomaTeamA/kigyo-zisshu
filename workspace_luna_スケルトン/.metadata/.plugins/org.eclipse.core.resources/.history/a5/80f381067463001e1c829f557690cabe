@@ -250,17 +250,17 @@ public class CustomerDao extends BaseDao {
 
             int intResult = pstmt.executeUpdate();
             if (intResult != 1) {
-                errMessage = MESSAGE_NO_EXIST_DATA_TO_DELETE;
+                errMessage = MESSAGE_CAN_NOT_DELETE;
             }
         } catch (SQLException | ClassNotFoundException e) {
-            errMessage = MESSAGE_CAN_NOT_DELETE;
+            errMessage = e.getMessage();
             LogUtil.printStackTrace(e);
         } finally {
             try {
                 pstmt.close();
                 close();
             } catch (SQLException e) {
-                errMessage = MESSAGE_CAN_NOT_DELETE;
+                errMessage = e.getMessage();
                 LogUtil.printStackTrace(e);
             }
         }

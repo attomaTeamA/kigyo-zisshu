@@ -39,11 +39,7 @@
             </tr>
             <tr>
                 <td class="title">FAX</td>
-                <td>
-                    <% if(customer.getFax() != null) { %>
-                        <%=customer.getFax()%>
-                    <% } %>
-                </td>
+                <td><%=customer.getFax()%></td>
             </tr>
             <tr>
                 <td class="title">E-mail</td>
