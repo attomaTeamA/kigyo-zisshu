@@ -11,8 +11,6 @@
 <body>
     <h1>入力の確認</h1>
     <div class="main">
-
-        <!-- ｢入力確認｣画面 -->
         <h2>詳細</h2>
         <table border="1">
             <tr>

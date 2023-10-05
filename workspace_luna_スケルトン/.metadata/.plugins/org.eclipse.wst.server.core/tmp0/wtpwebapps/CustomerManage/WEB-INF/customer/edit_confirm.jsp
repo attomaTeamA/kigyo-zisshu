@@ -13,7 +13,6 @@
 <body>
     <h1>顧客管理</h1>
     <div class="main">
-        <!-- ｢編集確認｣画面 -->
        <h2>修正の確認</h2>
         <form name="?form1" action="CustomerServlet" method="post"
             onsubmit="return funcConfirm()">

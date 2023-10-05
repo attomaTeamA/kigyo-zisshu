@@ -329,6 +329,7 @@ public class CustomerServlet extends BaseServlet {
             IOException, UnsupportedEncodingException {
        CustomerLogic customerLogic =  new CustomerLogic();
         customerLogic.setCustomerBeanFromRequestToSession(request);
+        System.out.println("procNewConfirm");
         getServletContext().getRequestDispatcher("/WEB-INF/customer/new_confirm.jsp").forward(request, response);
     }
 }

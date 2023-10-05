@@ -20,7 +20,7 @@
             <table>
                 <tr>
                     <td class="title">氏名</td>
-                    <td><input type="text" name="name" maxlength="15"
+                    <td><input type="text" name="name" maxlength="20"
                         value="<%=customer.getName()%>"></td>
                 </tr>
                 <tr>
@@ -30,12 +30,12 @@
                 </tr>
        　　                          <tr>
                     <td class="title">住所１</td>
-                    <td><input type="text" name="address1" maxlength="20"
+                    <td><input type="text" name="address1" maxlength="100"
                         value="<%=customer.getAddress1()%>"></td>
                 </tr>
                 <tr>
                     <td class="title">住所２</td>
-                    <td><input type="text" name="address2" maxlength="20"
+                    <td><input type="text" name="address2" maxlength="100"
                         value="<%=customer.getAddress2()%>"></td>
                 </tr>
                 <tr>
@@ -50,7 +50,7 @@
                 </tr>   
                 <tr>
                     <td class="title">E-mail</td>
-                    <td><input type="text" name="email" maxlength="20"
+                    <td><input type="text" name="email" maxlength="100"
                         value="<%=customer.getEmail()%>"></td>
                 </tr>
             </table> 
