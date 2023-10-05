@@ -52,7 +52,7 @@
                     <td class="title">E-mail</td>
                     <td><input type="text" name="email" maxlength="20"
                         value="<%=customer.getEmail()%>"></td>
-                </tr>                                                                      
+                </tr>
             </table> 
             <p>
                 <button name="state" value="edit_confirm">送信</button>

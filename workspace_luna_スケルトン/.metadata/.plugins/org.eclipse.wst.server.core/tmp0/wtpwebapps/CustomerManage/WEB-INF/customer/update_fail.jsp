@@ -16,8 +16,6 @@
                 <button name="state" value="search">検索画面</button>
             </p>
         </form>
-        <!-- TODO ｢更新未完了｣画面 -->
-
     </div>
 </body>
 </html>

@@ -27,7 +27,7 @@ public class CustomerServlet extends BaseServlet {
     private static final long serialVersionUID = 1L;
 
     /**
-     * コンストラクタ
+             * コンストラクタ
      * @see BaseServlet#BaseServlet()
      */
     public CustomerServlet() {
@@ -37,14 +37,13 @@ public class CustomerServlet extends BaseServlet {
     /**
      * HTTPのPOSTメソッド受信時に呼び出される処理
      * <pre>
-     * セッションに含まれるstate属性の値に応じて
-     * 顧客管理固有の処理を行う
+             * セッションに含まれるstate属性の値に応じて
+             * 顧客管理固有の処理を行う
      * </pre>
      * @see BaseServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
         LogUtil.println("**** " + this.getClass().getSimpleName() + "#doPost *****");
 
         request.setCharacterEncoding("UTF-8");
@@ -123,7 +122,7 @@ public class CustomerServlet extends BaseServlet {
     }
 
     /**
-     * 検索条件画面に遷移する
+             * 検索条件画面に遷移する
      * <pre>
      * state属性＝"search"時の処理
      * </pre>
@@ -136,7 +135,7 @@ public class CustomerServlet extends BaseServlet {
     }
 
     /**
-     * リクエスト内のserch属性の値と、顧客情報の名前で、部分一致する全レコードをDBから取得し、検索結果画面に遷移する
+             * リクエスト内のserch属性の値と、顧客情報の名前で、部分一致する全レコードをDBから取得し、検索結果画面に遷移する
      * <pre>
      * state属性＝"list"時の処理
      * </pre>
@@ -156,7 +155,7 @@ public class CustomerServlet extends BaseServlet {
     }
 
     /**
-     * 表示対象の顧客情報をDBから取得し、詳細画面に遷移する
+             * 表示対象の顧客情報をDBから取得し、詳細画面に遷移する
      * <pre>
      * state属性＝"detail"時の処理
      * </pre>
@@ -178,7 +177,7 @@ public class CustomerServlet extends BaseServlet {
     }
 
     /**
-     * セッションから顧客情報を取得し、DB更新処理後、更新完了(成功時)画面、または、更新未完了(失敗時)画面に遷移する
+             * セッションから顧客情報を取得し、DB更新処理後、更新完了(成功時)画面、または、更新未完了(失敗時)画面に遷移する
      * <pre>
      * state属性＝"update"時の処理
      * </pre>
@@ -188,7 +187,6 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procUpdate(HttpServletRequest request, HttpServletResponse response, HttpSession session)
             throws ServletException, IOException {
-        // TODO 未実装
         String errMessage = null;
         CustomerBean customer = (CustomerBean) session.getAttribute("customer");
         CustomerLogic CustomerLogic = new CustomerLogic();
@@ -205,7 +203,7 @@ public class CustomerServlet extends BaseServlet {
        }
 
     /**
-     * 新規登録画面に遷移する
+             * 新規登録画面に遷移する
      * <pre>
      * state属性＝"new"時の処理
      * </pre>
@@ -213,13 +211,11 @@ public class CustomerServlet extends BaseServlet {
      * @param response  HTTPのレスポンス
      */
     private void procNew(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO 未実装
-        // TODO
-        getServletContext().getRequestDispatcher("/WEB-INF/customer/new.jsp").forward(request, response);
+       getServletContext().getRequestDispatcher("/WEB-INF/customer/new.jsp").forward(request, response);
     }
 
     /**
-     * セッションから顧客情報を取得し、DB追加処理後、新規登録完了(成功時)画面、または、新規登録未完了(失敗時)画面に遷移する
+             * セッションから顧客情報を取得し、DB追加処理後、新規登録完了(成功時)画面、または、新規登録未完了(失敗時)画面に遷移する
      * <pre>
      * state属性＝"add"時の処理
      * </pre>
@@ -229,7 +225,6 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procAdd(HttpServletRequest request, HttpServletResponse response, HttpSession session)
             throws ServletException, IOException {
-        // TODO 未実装
         String errMessage = null;
         CustomerBean customer =(CustomerBean)session.getAttribute("customer");
         CustomerLogic customeradd = new CustomerLogic();
@@ -244,7 +239,7 @@ public class CustomerServlet extends BaseServlet {
     }
 
     /**
-     * 顧客情報をDBから取得し、削除確認画面に遷移する
+         * 顧客情報をDBから取得し、削除確認画面に遷移する
      * <pre>
      * state属性＝"delete_confirm"時の処理
      * </pre>
@@ -256,7 +251,6 @@ public class CustomerServlet extends BaseServlet {
             throws ServletException, IOException {
 
         int intId = Integer.parseInt(id);
-        // sessionに保存
         CustomerLogic customerLogic = new CustomerLogic();
         CustomerBean customer = null;
         customer = customerLogic.load(intId);
@@ -266,7 +260,7 @@ public class CustomerServlet extends BaseServlet {
     }
 
     /**
-     * セッションから顧客情報を取得し、DB削除処理後、削除完了(成功時)画面、または、削除未完了(失敗時)画面に遷移する
+             * セッションから顧客情報を取得し、DB削除処理後、削除完了(成功時)画面、または、削除未完了(失敗時)画面に遷移する
      * <pre>
      * state属性＝"delete"時の処理
      * </pre>
@@ -294,7 +288,7 @@ public class CustomerServlet extends BaseServlet {
     }
 
     /**
-     * 既存データ編集･削除画面に遷移する
+             * 既存データ編集･削除画面に遷移する
      * <pre>
      * state属性＝"edit"時の処理
      * </pre>
@@ -303,7 +297,6 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
-        // TODO 未実装
         getServletContext().getRequestDispatcher("/WEB-INF/customer/edit.jsp").forward(request, response);
    
     }
@@ -318,8 +311,6 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procEditConfirm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO 未実装
-        String errMessage = null;
         CustomerLogic CustomerLogic = new CustomerLogic();
         CustomerLogic.setCustomerBeanFromRequestToSession(request);
         getServletContext().getRequestDispatcher("/WEB-INF/customer/edit_confirm.jsp").forward(request, response);
@@ -336,7 +327,6 @@ public class CustomerServlet extends BaseServlet {
      */
     private void procNewConfirm(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException, UnsupportedEncodingException {
-        // TODO セッションにセット
        CustomerLogic customerLogic =  new CustomerLogic();
         customerLogic.setCustomerBeanFromRequestToSession(request);
         System.out.println("procNewConfirm");

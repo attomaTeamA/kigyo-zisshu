@@ -44,7 +44,6 @@
                 <form action="CustomerServlet" method="post">
                     <button name="state" value="detail,<%=customer.getId()%>">詳細</button>
                 </form>
-                <!-- ｢削除｣ボタン -->
                 <td class="center">
                 <form action="CustomerServlet" method="post">
                     <button name="state" value="delete_confirm,<%=customer.getId()%>">削除</button>
@@ -61,12 +60,10 @@
         </table>
         <form action="CustomerServlet" method="post">
             <p>
-
                 <!-- TODO ｢新規登録｣ボタン -->
                 <% if (user.getLvl() >= 1) {%>
                  <button name="state" value="new">新規登録</button>
                 <% } %>
-
                 <button name="state" value="search">検索条件画面</button>
             </p>
         </form>

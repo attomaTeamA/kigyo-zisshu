@@ -45,15 +45,13 @@
                 <tr>
                     <td>E-mail</td>
                     <td><%=customer.getEmail()%></td>
-                </tr>                                                                      
+                </tr>
             </table> 
             <p>
                 <button name="state" value="update">送信</button>
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>
-
-
     </div>
 </body>
 </html>

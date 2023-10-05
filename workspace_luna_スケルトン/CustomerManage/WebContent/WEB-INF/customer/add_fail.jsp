@@ -9,8 +9,6 @@
 <body>
     <h1>顧客管理</h1>
     <div class="main">
-
-        <!-- TODO ｢新規登録未完了｣画面 -->
         <h2>新規登録未完了</h2>
         <h2><%=session.getAttribute("errMessage")%></h2>
         <form action="CustomerServlet" method="post">

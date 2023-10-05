@@ -16,8 +16,5 @@
             </p>
         </form>
     </div>
-        <!-- TODO ｢更新完了｣画面 -->
-
-    </div>
 </body>
 </html>

@@ -61,7 +61,7 @@ public class CustomerDao extends BaseDao {
     }
 
     /**
-     * 顧客情報テーブルから氏名と検索キーワードが一致する顧客の情報を取得する
+             * 顧客情報テーブルから氏名と検索キーワードが一致する顧客の情報を取得する
      * @param name 顧客情報テーブルを氏名で部分一致検索するためのキーワード
      * @return 顧客情報Beanのリスト
      */
@@ -111,7 +111,6 @@ public class CustomerDao extends BaseDao {
      */
     public CustomerBean load(int id) {
         LogUtil.println(this.getClass().getSimpleName() + "#load");
-
         PreparedStatement pstmt = null;
         String strSql = "SELECT * FROM CUSTOMER WHERE id =?";
         CustomerBean customer = null;
@@ -154,9 +153,9 @@ public class CustomerDao extends BaseDao {
      */
     public String add(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#add");
-
         String errMessage = null;
         PreparedStatement pstmt = null;
+        System.out.println(customer.getName());
         String strSql = "INSERT INTO  CUSTOMER(id,name,zip,address1,address2,tel,fax,email)"
                 + " VALUES(sequence_customer_id.NEXTVAL,?,?,?,?,?,?,?)";
 
@@ -194,28 +193,16 @@ public class CustomerDao extends BaseDao {
      */
     public String update(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#update");
-
-        // TODO 未実装
- 
-        LogUtil.println(this.getClass().getSimpleName() + "#update");
-
-        // TODO 未実装
         String errMessage = null;
         PreparedStatement pstmt = null;
 
         try {
             open();
             String strSql = null;
-//            if (pwd == null) {
                 strSql = "UPDATE CUSTOMER set name=?,zip=?,address1=?,"
                         + "address2=?,tel=?,fax=?,email=? WHERE id=?";
-            
-//                strSql = "UPDATE CUSTOMER set name=? WHERE id=?";
                 pstmt = conn.prepareStatement(strSql);
-
-     
                 pstmt.setString(1, customer.getName());
-            
                 pstmt.setString(2, customer.getZip());
                 pstmt.setString(3, customer.getAddress1());
                 pstmt.setString(4, customer.getAddress2());
@@ -223,17 +210,6 @@ public class CustomerDao extends BaseDao {
                 pstmt.setString(6, customer.getFax());
                 pstmt.setString(7, customer.getEmail());
                 pstmt.setInt(8,customer.getId());
-/*            } else {
-                strSql = "UPDATE LOGIN_USER set login=?,name=?,lvl=?,pwd=PWD_ENCRYPT(?,'" + SECRET + "')"
-                        + " WHERE id=?";
-                pstmt = conn.prepareStatement(strSql);
-                pstmt.setString(1, user.getLogin());
-                pstmt.setString(2, user.getName());
-                pstmt.setInt(3, user.getLvl());
-                pstmt.setString(4, pwd);
-                pstmt.setInt(5, user.getId());
-                */
-  //          }
             LogUtil.println(this.getClass().getSimpleName() + "#update　strSql="+ strSql);
             int intResult = pstmt.executeUpdate();
             System.out.println("成功");

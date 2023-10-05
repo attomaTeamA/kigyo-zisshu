@@ -34,9 +34,6 @@ public class CustomerLogic {
      */
     public String add(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#add");
-
-
-        // TODO 未実装
         String errMessage = null;
         CustomerDao customerDao = new CustomerDao();
         errMessage = customerDao.add(customer);
@@ -50,8 +47,6 @@ public class CustomerLogic {
      */
     public String update(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#update");
-
-        // TODO 未実装
         if (customer == null) {
             LogUtil.println(this.getClass().getSimpleName() + "#update null");
             return MESSAGE_NO_EXIST_CORRESPOND_DATA;
@@ -59,8 +54,7 @@ public class CustomerLogic {
 
         String errMessage = null;
         CustomerDao customerDao = new CustomerDao();
-//        errMessage = 
-        customerDao.update(customer);
+        errMessage = customerDao.update(customer);
         if (errMessage != null) {
             errMessage = MESSAGE_CAN_NOT_UPDATE;
         }
@@ -74,7 +68,6 @@ public class CustomerLogic {
      */
     public String delete(CustomerBean customer) {
         LogUtil.println(this.getClass().getSimpleName() + "#delete");
-
         if (customer == null) {
             return MESSAGE_NO_EXIST_CORRESPOND_DATA;
         }
@@ -95,7 +88,6 @@ public class CustomerLogic {
      */
     public void setCustomerBeanFromRequestToSession(HttpServletRequest request) {
         LogUtil.println(this.getClass().getSimpleName() + "#setCustomerBeanFromRequestToSession");
-        // TODO セッションにセットする（customerを） add_confirm で呼ぶ
         CustomerBean customer = (CustomerBean)request.getSession().getAttribute("customer");
         if (customer == null) {
             customer = new CustomerBean();

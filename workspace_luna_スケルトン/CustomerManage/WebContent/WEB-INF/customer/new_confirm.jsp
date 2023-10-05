@@ -46,13 +46,10 @@
         </table>
         <form action="CustomerServlet" method="post">
             <p>
-
-                <!-- TODO ｢編集｣ボタン -->
                 <button name="state" value="add">送信</button>
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>
-
     </div>
 </body>
 </html>

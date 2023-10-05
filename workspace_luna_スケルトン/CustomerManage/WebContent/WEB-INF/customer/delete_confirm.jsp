@@ -45,7 +45,6 @@
         <form action="CustomerServlet" method="post">
             <p>
                 <button name="state" value="delete,<%=customer.getId()%>">OK</button>
-
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>

@@ -55,8 +55,6 @@
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>
-
-
     </div>
 </body>
 <script type="text/javascript">
