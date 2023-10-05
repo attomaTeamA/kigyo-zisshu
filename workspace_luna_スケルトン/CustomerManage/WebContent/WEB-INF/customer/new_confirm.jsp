@@ -44,7 +44,7 @@
         </table>
         <form action="CustomerServlet" method="post">
             <p>
-                <button name="state" value="add">送信</button>
+                <button name="state" value="add">OK</button>
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>

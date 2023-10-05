@@ -212,22 +212,22 @@ public class CustomerDao extends BaseDao {
                 pstmt.setInt(8,customer.getId());
             LogUtil.println(this.getClass().getSimpleName() + "#update　strSql="+ strSql);
             int intResult = pstmt.executeUpdate();
-            System.out.println("成功");
             if (intResult != 1) {
-                errMessage = MESSAGE_NO_EXIST_CORRESPOND_DATA;
+                errMessage = MESSAGE_NO_EXIST_DATA_TO_UPDATE;
             }
         } catch (SQLException | ClassNotFoundException e) {
-            errMessage = e.getMessage();
+            errMessage = MESSAGE_CAN_NOT_UPDATE;
             LogUtil.printStackTrace(e);
         } finally {
             try {
                 pstmt.close();
                 close();
             } catch (SQLException e) {
-                errMessage = e.getMessage();
+                errMessage = MESSAGE_CAN_NOT_UPDATE;
                 LogUtil.printStackTrace(e);
             }
         }
+        System.out.println(errMessage);
         return errMessage;
         }
 

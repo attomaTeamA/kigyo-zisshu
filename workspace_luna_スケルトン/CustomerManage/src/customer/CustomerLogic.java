@@ -37,6 +37,10 @@ public class CustomerLogic {
         String errMessage = null;
         CustomerDao customerDao = new CustomerDao();
         errMessage = customerDao.add(customer);
+        if (errMessage != null) {
+            LogUtil.println(this.getClass().getSimpleName() + "#add_cannot");
+            errMessage = MESSAGE_CAN_NOT_ADD;
+        }
         return errMessage;
     }
 

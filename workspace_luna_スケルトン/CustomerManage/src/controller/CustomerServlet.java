@@ -233,6 +233,7 @@ public class CustomerServlet extends BaseServlet {
         if(errMessage == null) {
             request.getRequestDispatcher("/WEB-INF/customer/add_success.jsp").forward(request, response);
         }else {
+            session.setAttribute("errMessage", errMessage);
             request.getRequestDispatcher("/WEB-INF/customer/add_fail.jsp").forward(request, response);
         }
         return;

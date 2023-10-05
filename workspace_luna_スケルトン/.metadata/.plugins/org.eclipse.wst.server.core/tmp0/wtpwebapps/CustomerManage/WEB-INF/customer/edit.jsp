@@ -36,7 +36,11 @@
                 <tr>
                     <td class="title">住所２</td>
                     <td><input type="text" name="address2" maxlength="100"
-                        value="<%=customer.getAddress2()%>"></td>
+                        <% if(customer.getAddress2() != null) { %>
+                            value="<%=customer.getAddress2()%>"
+                        <% } %>
+                        >
+                    </td>
                 </tr>
                 <tr>
                     <td class="title">TEL</td>
@@ -46,7 +50,10 @@
                 <tr>
                     <td class="title">FAX</td>
                     <td><input type="text" name="fax" maxlength="20"
-                        value="<%=customer.getFax()%>"></td>
+                        <% if(customer.getFax() != null ) { %>
+                           value="<%=customer.getFax()%>">
+                        <% } %>   
+                    </td>
                 </tr>   
                 <tr>
                     <td class="title">E-mail</td>
@@ -84,6 +91,8 @@
                 alert("E-mailが入力されていません。");
                 return false;
             }
-    }
+
+		 }
+     }
 </script>
 </html>

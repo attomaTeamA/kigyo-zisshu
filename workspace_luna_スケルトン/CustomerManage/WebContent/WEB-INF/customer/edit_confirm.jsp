@@ -47,7 +47,7 @@
                 </tr>
             </table> 
             <p>
-                <button name="state" value="update">送信</button>
+                <button name="state" value="update">OK</button>
                 <input type="button" value="戻る" onclick="history.back()">
             </p>
         </form>
