@@ -114,3 +114,13 @@
 0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:48:06 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 3298
 0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:48:17 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 1556
 0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:48:18 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 527
+127.0.0.1 - - [04/Oct/2023:20:49:12 +0900] "GET / HTTP/1.1" 404 1103
+0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:49:13 +0900] "GET /CustomerManage/LoginServlet HTTP/1.1" 200 827
+0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:49:16 +0900] "POST /CustomerManage/LoginServlet HTTP/1.1" 200 992
+0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:49:18 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 758
+0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:49:20 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 1715
+0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:49:21 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 3298
+0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:49:31 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 1551
+0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:49:33 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 536
+0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:49:35 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 758
+0:0:0:0:0:0:0:1 - - [04/Oct/2023:20:49:39 +0900] "POST /CustomerManage/CustomerServlet HTTP/1.1" 200 2454

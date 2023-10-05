@@ -63,33 +63,27 @@
 </body>
 <script type="text/javascript">
     function funcConfirm() {
-        if (document.form1.name.value == "") {
-            alert("氏名が入力されていません。");
-            return false;
-        }
-    function funcConfirm() {
-            if (document.form1.zipvalue == "") {
+        // TODO バリデーションチェック･alertダイアログ処理
+           if (document.form1.name.value == "") {
+                alert("氏名が入力されていません。");
+                return false;
+            }
+            if (document.form1.zip.value == "") {
                 alert("郵便番号が入力されていません。");
                 return false;
-        } 
-    function funcConfirm() {
-        if (document.form1.address1.value == "") {
-            alert("住所が入力されていません。");
-            return false;
-        }        
-    function funcConfirm() {
-        if (document.form1.tel.value == "") {
-            alert("電話番号が入力されていません。");
-            return false;
-        }         
-    function funcConfirm() {
-        if (document.form1.email.value == "") {
-            alert("E-mailアドレスが入力されていません。");
-            return false;
-        }           
-            
-        // TODO バリデーションチェック･alertダイアログ処理
-
+            }
+            if (document.form1.address1.value == "") {
+                alert("住所１が入力されていません。");
+                return false;
+            }
+            if (document.form1.tel.value == "") {
+                alert("電話番号が入力されていません。");
+                return false;
+            }
+            if (document.form1.email.value == "") {
+                alert("E-mailが入力されていません。");
+                return false;
+            }
     }
 </script>
 </html>

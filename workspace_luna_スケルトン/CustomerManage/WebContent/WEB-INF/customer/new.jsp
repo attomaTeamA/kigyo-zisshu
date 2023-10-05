@@ -82,13 +82,6 @@
                 alert("E-mailが入力されていません。");
                 return false;
             }
-
-
-/*            if (!document.form1.login.value.match(/^[a-zA-Z0-9]+$/)) {
-                alert("ログイン名を半角英数字で入力してください");
-                return false;
-            } */
-
     }
 </script>
 </html>
