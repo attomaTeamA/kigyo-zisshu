@@ -14,8 +14,7 @@
     <h1>顧客管理</h1>
     <div class="main">
        <h2>修正の確認</h2>
-        <form name="?form1" action="CustomerServlet" method="post"
-            onsubmit="return funcConfirm()">
+        <form name="?form1" action="CustomerServlet" method="post">
             <table>
                 <tr>
                     <td>氏名</td>
@@ -40,12 +39,12 @@
                 <tr>
                     <td>FAX</td>
                     <td><%=customer.getFax()%></td>
-                </tr>   
+                </tr>
                 <tr>
                     <td>E-mail</td>
                     <td><%=customer.getEmail()%></td>
                 </tr>
-            </table> 
+            </table>
             <p>
                 <button name="state" value="update">OK</button>
                 <input type="button" value="戻る" onclick="history.back()">

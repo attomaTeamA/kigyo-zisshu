@@ -52,15 +52,15 @@
                     <td><input type="text" name="fax" maxlength="20"
                         <% if(customer.getFax() != null ) { %>
                            value="<%=customer.getFax()%>">
-                        <% } %>   
+                        <% } %>
                     </td>
-                </tr>   
+                </tr>
                 <tr>
                     <td class="title">E-mail</td>
                     <td><input type="text" name="email" maxlength="100"
                         value="<%=customer.getEmail()%>"></td>
                 </tr>
-            </table> 
+            </table>
             <p>
                 <button name="state" value="edit_confirm">送信</button>
                 <input type="button" value="戻る" onclick="history.back()">
@@ -91,8 +91,6 @@
                 alert("E-mailが入力されていません。");
                 return false;
             }
-
-		 }
-     }
+        }
 </script>
 </html>
